@@ -11,7 +11,7 @@
         } while (!int.TryParse(cadena, out numero));
 
         int contador = 0;
-        for (int i = 1; i < Math.Ceiling(Math.Sqrt(numero)); i++)
+        for (int i = 1; i <= Math.Ceiling(Math.Sqrt(numero)); i++)
         {
             if (numero % i == 0)
             {
