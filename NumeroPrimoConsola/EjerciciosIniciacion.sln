@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumeroPrimoConsola", "NumeroPrimoConsola\NumeroPrimoConsola.csproj", "{23A89DE3-E103-4BCB-A286-BF4471723AA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximoMinimoSufrido", "MaximoMinimoSufrido\MaximoMinimoSufrido.csproj", "{6007063C-D2D3-4C28-9691-43F50F64B2F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaximoMinimoSufrido", "MaximoMinimoSufrido\MaximoMinimoSufrido.csproj", "{6007063C-D2D3-4C28-9691-43F50F64B2F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CifradoCesar", "CifradoCesar\CifradoCesar.csproj", "{EB8C79CD-3851-48AA-9ED2-23F6061A1BC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6007063C-D2D3-4C28-9691-43F50F64B2F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6007063C-D2D3-4C28-9691-43F50F64B2F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6007063C-D2D3-4C28-9691-43F50F64B2F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8C79CD-3851-48AA-9ED2-23F6061A1BC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8C79CD-3851-48AA-9ED2-23F6061A1BC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8C79CD-3851-48AA-9ED2-23F6061A1BC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8C79CD-3851-48AA-9ED2-23F6061A1BC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
