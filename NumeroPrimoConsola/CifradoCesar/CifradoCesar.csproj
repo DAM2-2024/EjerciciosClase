@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Update="diccionario.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="el_quijote.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
