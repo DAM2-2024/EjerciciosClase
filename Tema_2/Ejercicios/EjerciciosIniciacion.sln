@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationExercise", "Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenciasListas", "ReferenciasListas\ReferenciasListas.csproj", "{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQMasters", "LINQMasters\LINQMasters.csproj", "{A7CFE5CB-35EF-4E40-A605-2F711A133032}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
