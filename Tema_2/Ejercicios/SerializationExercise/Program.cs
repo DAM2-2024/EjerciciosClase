@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Text.Json;
 
-public class Person
-{
-    public string Name { get; set; }
-    public int Age { get; set; }
-}
 
 class Program
 {
+    public class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
     static void Main()
     {
         // Crear un objeto Person
-        var person = new Person { Name = "Alice", Age = 30 };
+        var person = new Person {
+            Name = "Alice",
+            Age = 30 
+        };
 
         // Serialización a JSON
         string jsonString = JsonSerializer.Serialize(person);
