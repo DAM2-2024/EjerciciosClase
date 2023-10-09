@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CifradoCesar", "CifradoCesa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploAsincrono", "EjemploAsincrono\EjemploAsincrono.csproj", "{113B49CB-F402-4AC2-9023-337384C6213A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializationExercise", "SerializationExercise\SerializationExercise.csproj", "{A733F6CE-384C-4337-9986-0BD75287E66C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationExercise", "SerializationExercise\SerializationExercise.csproj", "{A733F6CE-384C-4337-9986-0BD75287E66C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenciasListas", "ReferenciasListas\ReferenciasListas.csproj", "{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A733F6CE-384C-4337-9986-0BD75287E66C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A733F6CE-384C-4337-9986-0BD75287E66C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A733F6CE-384C-4337-9986-0BD75287E66C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
