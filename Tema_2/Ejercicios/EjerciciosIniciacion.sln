@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjemploAsincrono", "Ejemplo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerializationExercise", "SerializationExercise\SerializationExercise.csproj", "{A733F6CE-384C-4337-9986-0BD75287E66C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenciasListas", "ReferenciasListas\ReferenciasListas.csproj", "{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReferenciasListas", "ReferenciasListas\ReferenciasListas.csproj", "{DAE96615-4EC4-4AC8-B315-AA4A8F7C6337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQMasters", "LINQMasters\LINQMasters.csproj", "{A7CFE5CB-35EF-4E40-A605-2F711A133032}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQMasters", "LINQMasters\LINQMasters.csproj", "{A7CFE5CB-35EF-4E40-A605-2F711A133032}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumerosPrimosWinForm", "NumerosPrimosWinForm\NumerosPrimosWinForm.csproj", "{2AEDC419-5AF5-447B-B27D-B8ED2ECB5719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7CFE5CB-35EF-4E40-A605-2F711A133032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AEDC419-5AF5-447B-B27D-B8ED2ECB5719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AEDC419-5AF5-447B-B27D-B8ED2ECB5719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AEDC419-5AF5-447B-B27D-B8ED2ECB5719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AEDC419-5AF5-447B-B27D-B8ED2ECB5719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
