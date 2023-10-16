@@ -1,4 +1,4 @@
-namespace NumerosPrimosWinForm
+namespace MiticaCalculadoraDI
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace NumerosPrimosWinForm
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new PrimoForm());
+            Application.Run(new Calculador());
         }
     }
 }
