@@ -27,10 +27,6 @@
         private RadioButton flowBottomUpBtn;
         private RadioButton flowLeftToRight;
         private RadioButton flowRightToLeftBtn;
-        private Button Button1;
-        private Button Button2;
-        private Button Button3;
-        private Button Button4;
 
 
         //NOTE: The following procedure is required by the Windows Form Designer
@@ -39,143 +35,97 @@
         [System.Diagnostics.DebuggerNonUserCode]
         private void InitializeComponent()
         {
-            FlowLayoutPanel = new FlowLayoutPanel();
-            Button1 = new Button();
-            Button2 = new Button();
-            Button3 = new Button();
-            Button4 = new Button();
-            wrapContentsCheckBox = new CheckBox();
-            flowTopDownBtn = new RadioButton();
-            flowBottomUpBtn = new RadioButton();
-            flowLeftToRight = new RadioButton();
-            flowRightToLeftBtn = new RadioButton();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            FlowLayoutPanel.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            SuspendLayout();
+            this.FlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.wrapContentsCheckBox = new System.Windows.Forms.CheckBox();
+            this.flowTopDownBtn = new System.Windows.Forms.RadioButton();
+            this.flowBottomUpBtn = new System.Windows.Forms.RadioButton();
+            this.flowLeftToRight = new System.Windows.Forms.RadioButton();
+            this.flowRightToLeftBtn = new System.Windows.Forms.RadioButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // FlowLayoutPanel
             // 
-            FlowLayoutPanel.AutoSize = true;
-            FlowLayoutPanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            FlowLayoutPanel.Controls.Add(Button1);
-            FlowLayoutPanel.Controls.Add(Button2);
-            FlowLayoutPanel.Controls.Add(Button3);
-            FlowLayoutPanel.Controls.Add(Button4);
-            FlowLayoutPanel.Dock = DockStyle.Fill;
-            FlowLayoutPanel.Location = new Point(0, 0);
-            FlowLayoutPanel.Name = "FlowLayoutPanel";
-            FlowLayoutPanel.Size = new Size(213, 273);
-            FlowLayoutPanel.TabIndex = 0;
-            // 
-            // Button1
-            // 
-            Button1.Location = new Point(3, 3);
-            Button1.Name = "Button1";
-            Button1.Size = new Size(75, 23);
-            Button1.TabIndex = 0;
-            Button1.Text = "Button1";
-            // 
-            // Button2
-            // 
-            Button2.Location = new Point(84, 3);
-            Button2.Name = "Button2";
-            Button2.Size = new Size(75, 23);
-            Button2.TabIndex = 1;
-            Button2.Text = "Button2";
-            // 
-            // Button3
-            // 
-            Button3.Location = new Point(3, 32);
-            Button3.Name = "Button3";
-            Button3.Size = new Size(75, 23);
-            Button3.TabIndex = 2;
-            Button3.Text = "Button3";
-            // 
-            // Button4
-            // 
-            Button4.Location = new Point(84, 32);
-            Button4.Name = "Button4";
-            Button4.Size = new Size(75, 23);
-            Button4.TabIndex = 3;
-            Button4.Text = "Button4";
+            this.FlowLayoutPanel.AutoSize = true;
+            this.FlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.FlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.FlowLayoutPanel.Name = "FlowLayoutPanel";
+            this.FlowLayoutPanel.Size = new System.Drawing.Size(771, 379);
+            this.FlowLayoutPanel.TabIndex = 0;
             // 
             // wrapContentsCheckBox
             // 
-            wrapContentsCheckBox.Checked = true;
-            wrapContentsCheckBox.CheckState = CheckState.Checked;
-            wrapContentsCheckBox.Location = new Point(3, 3);
-            wrapContentsCheckBox.Name = "wrapContentsCheckBox";
-            wrapContentsCheckBox.Size = new Size(104, 24);
-            wrapContentsCheckBox.TabIndex = 1;
-            wrapContentsCheckBox.Text = "Wrap Contents";
-            wrapContentsCheckBox.CheckedChanged += WrapContentsCheckBox_CheckedChanged;
+            this.wrapContentsCheckBox.Checked = true;
+            this.wrapContentsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wrapContentsCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.wrapContentsCheckBox.Name = "wrapContentsCheckBox";
+            this.wrapContentsCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.wrapContentsCheckBox.TabIndex = 1;
+            this.wrapContentsCheckBox.Text = "Wrap Contents";
             // 
             // flowTopDownBtn
             // 
-            flowTopDownBtn.AutoSize = true;
-            flowTopDownBtn.Location = new Point(3, 33);
-            flowTopDownBtn.Name = "flowTopDownBtn";
-            flowTopDownBtn.Size = new Size(129, 24);
-            flowTopDownBtn.TabIndex = 2;
-            flowTopDownBtn.Text = "Flow TopDown";
-            flowTopDownBtn.CheckedChanged += FlowTopDownBtn_CheckedChanged;
+            this.flowTopDownBtn.AutoSize = true;
+            this.flowTopDownBtn.Location = new System.Drawing.Point(113, 3);
+            this.flowTopDownBtn.Name = "flowTopDownBtn";
+            this.flowTopDownBtn.Size = new System.Drawing.Size(103, 19);
+            this.flowTopDownBtn.TabIndex = 2;
+            this.flowTopDownBtn.Text = "Flow TopDown";
             // 
             // flowBottomUpBtn
             // 
-            flowBottomUpBtn.AutoSize = true;
-            flowBottomUpBtn.Location = new Point(3, 63);
-            flowBottomUpBtn.Name = "flowBottomUpBtn";
-            flowBottomUpBtn.Size = new Size(134, 24);
-            flowBottomUpBtn.TabIndex = 3;
-            flowBottomUpBtn.Text = "Flow BottomUp";
-            flowBottomUpBtn.CheckedChanged += FlowBottomUpBtn_CheckedChanged;
+            this.flowBottomUpBtn.AutoSize = true;
+            this.flowBottomUpBtn.Location = new System.Drawing.Point(222, 3);
+            this.flowBottomUpBtn.Name = "flowBottomUpBtn";
+            this.flowBottomUpBtn.Size = new System.Drawing.Size(108, 19);
+            this.flowBottomUpBtn.TabIndex = 3;
+            this.flowBottomUpBtn.Text = "Flow BottomUp";
             // 
             // flowLeftToRight
             // 
-            flowLeftToRight.AutoSize = true;
-            flowLeftToRight.Location = new Point(3, 123);
-            flowLeftToRight.Name = "flowLeftToRight";
-            flowLeftToRight.Size = new Size(141, 24);
-            flowLeftToRight.TabIndex = 4;
-            flowLeftToRight.Text = "Flow LeftToRight";
-            flowLeftToRight.CheckedChanged += FlowLeftToRight_CheckedChanged;
+            this.flowLeftToRight.AutoSize = true;
+            this.flowLeftToRight.Location = new System.Drawing.Point(455, 3);
+            this.flowLeftToRight.Name = "flowLeftToRight";
+            this.flowLeftToRight.Size = new System.Drawing.Size(113, 19);
+            this.flowLeftToRight.TabIndex = 4;
+            this.flowLeftToRight.Text = "Flow LeftToRight";
             // 
             // flowRightToLeftBtn
             // 
-            flowRightToLeftBtn.AutoSize = true;
-            flowRightToLeftBtn.Location = new Point(3, 93);
-            flowRightToLeftBtn.Name = "flowRightToLeftBtn";
-            flowRightToLeftBtn.Size = new Size(141, 24);
-            flowRightToLeftBtn.TabIndex = 5;
-            flowRightToLeftBtn.Text = "Flow RightToLeft";
-            flowRightToLeftBtn.CheckedChanged += FlowRightToLeftBtn_CheckedChanged;
+            this.flowRightToLeftBtn.AutoSize = true;
+            this.flowRightToLeftBtn.Location = new System.Drawing.Point(336, 3);
+            this.flowRightToLeftBtn.Name = "flowRightToLeftBtn";
+            this.flowRightToLeftBtn.Size = new System.Drawing.Size(113, 19);
+            this.flowRightToLeftBtn.TabIndex = 5;
+            this.flowRightToLeftBtn.Text = "Flow RightToLeft";
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(wrapContentsCheckBox);
-            flowLayoutPanel1.Controls.Add(flowTopDownBtn);
-            flowLayoutPanel1.Controls.Add(flowBottomUpBtn);
-            flowLayoutPanel1.Controls.Add(flowRightToLeftBtn);
-            flowLayoutPanel1.Controls.Add(flowLeftToRight);
-            flowLayoutPanel1.Dock = DockStyle.Bottom;
-            flowLayoutPanel1.Location = new Point(0, 273);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(213, 125);
-            flowLayoutPanel1.TabIndex = 6;
+            this.flowLayoutPanel1.Controls.Add(this.wrapContentsCheckBox);
+            this.flowLayoutPanel1.Controls.Add(this.flowTopDownBtn);
+            this.flowLayoutPanel1.Controls.Add(this.flowBottomUpBtn);
+            this.flowLayoutPanel1.Controls.Add(this.flowRightToLeftBtn);
+            this.flowLayoutPanel1.Controls.Add(this.flowLeftToRight);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 379);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(771, 125);
+            this.flowLayoutPanel1.TabIndex = 6;
             // 
             // Pokedex
             // 
-            ClientSize = new Size(213, 398);
-            Controls.Add(FlowLayoutPanel);
-            Controls.Add(flowLayoutPanel1);
-            Name = "Pokedex";
-            Text = "DiseñoResponsivo";
-            FlowLayoutPanel.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.ClientSize = new System.Drawing.Size(771, 504);
+            this.Controls.Add(this.FlowLayoutPanel);
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Name = "Pokedex";
+            this.Text = "DiseñoResponsivo";
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
