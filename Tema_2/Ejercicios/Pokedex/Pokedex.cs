@@ -128,7 +128,7 @@ namespace Pokedex
                     }
             
                     PictureBox pictureBox = new PictureBox();
-                    pictureBox.SizeMode=PictureBoxSizeMode.StretchImage
+                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                     pictureBox.Load(value.ToString() ?? Constants.DEFAULT_POKEMON_IMAGE_URL);
                     panel.Controls.Add(pictureBox);
                 }
