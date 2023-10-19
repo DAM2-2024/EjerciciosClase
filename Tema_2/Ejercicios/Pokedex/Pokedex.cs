@@ -1,6 +1,11 @@
 using Pokedex.Models;
+using Pokedex.Utils;
+using System.Net.Http;
 using System.Net.Http.Json;
+using System.Reflection;
 using System.Text.Json;
+using System.Windows.Forms;
+using Form = System.Windows.Forms.Form;
 
 namespace Pokedex
 {
@@ -10,8 +15,6 @@ namespace Pokedex
         {
             InitializeComponent();
             InitializeEvents();
-            //CreateRandomNumberOfButtons();
-            
         }
 
         private void InitializeEvents()
@@ -41,8 +44,11 @@ namespace Pokedex
             {
                 Button button = new()
                 {
-                    Text = pokemon.Nombre
+                    Text = pokemon.Nombre,
+                    Name= pokemon.UrlData
                 };
+                button.Click -= new EventHandler(Pokemon_ClikedAsync);
+                button.Click += new EventHandler(Pokemon_ClikedAsync);
                 FlowLayoutPanel.Controls.Add(button);
             }
         }
@@ -68,14 +74,6 @@ namespace Pokedex
                 };
                 FlowLayoutPanel.Controls.Add(button);
             }
-        }
-
-        public void WrapContentsCheckBox_CheckedChanged(
-        System.Object sender,
-        System.EventArgs e)
-        {
-            this.FlowLayoutPanel.WrapContents =
-                this.wrapContentsCheckBox.Checked;
         }
 
         public void FlowTopDownBtn_CheckedChanged(
@@ -105,5 +103,40 @@ namespace Pokedex
         {
             this.FlowLayoutPanel.FlowDirection = FlowDirection.RightToLeft;
         }
+
+        public async void Pokemon_ClikedAsync( System.Object sender, System.EventArgs e)
+        {
+            Form formularioPokemon = new Form();
+
+            FlowLayoutPanel panel = new FlowLayoutPanel();
+            panel.WrapContents = true;
+            panel.FlowDirection = FlowDirection.LeftToRight;
+            panel.Dock = DockStyle.Fill;
+
+            Button botonClicked= sender as Button ?? new Button();
+            using (HttpClient httpClient = new HttpClient())
+            {
+                PokeInfo? myJsonResponse = await httpClient.GetFromJsonAsync<PokeInfo>(botonClicked.Name);
+
+                PropertyInfo[] properties = typeof(Sprites).GetProperties();
+                foreach (PropertyInfo property in properties)
+                {
+                    object? value =property.GetValue(myJsonResponse?.sprites ?? new Sprites());
+                    if (value is not string)
+                    {
+                        continue;
+                    }
+            
+                    PictureBox pictureBox = new PictureBox();
+                    pictureBox.SizeMode=PictureBoxSizeMode.StretchImage
+                    pictureBox.Load(value.ToString() ?? Constants.DEFAULT_POKEMON_IMAGE_URL);
+                    panel.Controls.Add(pictureBox);
+                }
+            }
+            formularioPokemon.Controls.Add(panel);
+
+            formularioPokemon.Show();
+        }
+
     }
 }
