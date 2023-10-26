@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_PlusVida = new System.Windows.Forms.Button();
             this.btn_Registrar = new System.Windows.Forms.Button();
             this.txtBox_Fuerza = new System.Windows.Forms.TextBox();
             this.btn_MinusFuerza = new System.Windows.Forms.Button();
@@ -45,14 +46,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lb_DatosPersonaje = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.rd_Button1 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lb_Error = new System.Windows.Forms.Label();
+            this.cmb_Raza = new System.Windows.Forms.ComboBox();
+            this.rb_Evil = new System.Windows.Forms.RadioButton();
+            this.rb_Neutral = new System.Windows.Forms.RadioButton();
+            this.rb_Good = new System.Windows.Forms.RadioButton();
+            this.txb_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_PlusVida = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,12 +79,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 381);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1060, 225);
+            this.panel1.Size = new System.Drawing.Size(972, 225);
             this.panel1.TabIndex = 6;
+            // 
+            // btn_PlusVida
+            // 
+            this.btn_PlusVida.Location = new System.Drawing.Point(474, 104);
+            this.btn_PlusVida.Name = "btn_PlusVida";
+            this.btn_PlusVida.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btn_PlusVida.Size = new System.Drawing.Size(35, 23);
+            this.btn_PlusVida.TabIndex = 20;
+            this.btn_PlusVida.Text = "+";
+            this.btn_PlusVida.UseVisualStyleBackColor = true;
             // 
             // btn_Registrar
             // 
-            this.btn_Registrar.Location = new System.Drawing.Point(897, 156);
+            this.btn_Registrar.Location = new System.Drawing.Point(676, 156);
             this.btn_Registrar.Name = "btn_Registrar";
             this.btn_Registrar.Size = new System.Drawing.Size(75, 23);
             this.btn_Registrar.TabIndex = 19;
@@ -221,72 +232,78 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lb_Error);
             this.panel2.Controls.Add(this.lb_DatosPersonaje);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.radioButton3);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Controls.Add(this.rd_Button1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.cmb_Raza);
+            this.panel2.Controls.Add(this.rb_Evil);
+            this.panel2.Controls.Add(this.rb_Neutral);
+            this.panel2.Controls.Add(this.rb_Good);
+            this.panel2.Controls.Add(this.txb_Nombre);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1060, 381);
+            this.panel2.Size = new System.Drawing.Size(972, 381);
             this.panel2.TabIndex = 7;
             // 
-            // comboBox1
+            // lb_Error
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Elfo",
-            "Orco",
-            "Humano",
-            "Enano"});
-            this.comboBox1.Location = new System.Drawing.Point(227, 112);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 12;
+            this.lb_Error.AutoSize = true;
+            this.lb_Error.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lb_Error.ForeColor = System.Drawing.Color.Red;
+            this.lb_Error.Location = new System.Drawing.Point(529, 300);
+            this.lb_Error.Name = "lb_Error";
+            this.lb_Error.Size = new System.Drawing.Size(0, 30);
+            this.lb_Error.TabIndex = 13;
             // 
-            // radioButton3
+            // cmb_Raza
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(369, 207);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(43, 19);
-            this.radioButton3.TabIndex = 11;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Evil";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.cmb_Raza.FormattingEnabled = true;
+            this.cmb_Raza.Location = new System.Drawing.Point(227, 112);
+            this.cmb_Raza.Name = "cmb_Raza";
+            this.cmb_Raza.Size = new System.Drawing.Size(121, 23);
+            this.cmb_Raza.TabIndex = 12;
             // 
-            // radioButton2
+            // rb_Evil
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(260, 207);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(64, 19);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Neutral";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rb_Evil.AutoSize = true;
+            this.rb_Evil.Location = new System.Drawing.Point(369, 207);
+            this.rb_Evil.Name = "rb_Evil";
+            this.rb_Evil.Size = new System.Drawing.Size(43, 19);
+            this.rb_Evil.TabIndex = 11;
+            this.rb_Evil.TabStop = true;
+            this.rb_Evil.Text = "Evil";
+            this.rb_Evil.UseVisualStyleBackColor = true;
             // 
-            // rd_Button1
+            // rb_Neutral
             // 
-            this.rd_Button1.AutoSize = true;
-            this.rd_Button1.Location = new System.Drawing.Point(160, 207);
-            this.rd_Button1.Name = "rd_Button1";
-            this.rd_Button1.Size = new System.Drawing.Size(54, 19);
-            this.rd_Button1.TabIndex = 9;
-            this.rd_Button1.TabStop = true;
-            this.rd_Button1.Text = "Good";
-            this.rd_Button1.UseVisualStyleBackColor = true;
+            this.rb_Neutral.AutoSize = true;
+            this.rb_Neutral.Location = new System.Drawing.Point(260, 207);
+            this.rb_Neutral.Name = "rb_Neutral";
+            this.rb_Neutral.Size = new System.Drawing.Size(64, 19);
+            this.rb_Neutral.TabIndex = 10;
+            this.rb_Neutral.TabStop = true;
+            this.rb_Neutral.Text = "Neutral";
+            this.rb_Neutral.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // rb_Good
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 7;
+            this.rb_Good.AutoSize = true;
+            this.rb_Good.Location = new System.Drawing.Point(160, 207);
+            this.rb_Good.Name = "rb_Good";
+            this.rb_Good.Size = new System.Drawing.Size(54, 19);
+            this.rb_Good.TabIndex = 9;
+            this.rb_Good.TabStop = true;
+            this.rb_Good.Text = "Good";
+            this.rb_Good.UseVisualStyleBackColor = true;
+            // 
+            // txb_Nombre
+            // 
+            this.txb_Nombre.Location = new System.Drawing.Point(227, 72);
+            this.txb_Nombre.Name = "txb_Nombre";
+            this.txb_Nombre.Size = new System.Drawing.Size(100, 23);
+            this.txb_Nombre.TabIndex = 7;
             // 
             // label1
             // 
@@ -303,24 +320,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1060, 381);
+            this.panel3.Size = new System.Drawing.Size(972, 381);
             this.panel3.TabIndex = 8;
-            // 
-            // btn_PlusVida
-            // 
-            this.btn_PlusVida.Location = new System.Drawing.Point(474, 104);
-            this.btn_PlusVida.Name = "btn_PlusVida";
-            this.btn_PlusVida.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btn_PlusVida.Size = new System.Drawing.Size(35, 23);
-            this.btn_PlusVida.TabIndex = 20;
-            this.btn_PlusVida.Text = "+";
-            this.btn_PlusVida.UseVisualStyleBackColor = true;
             // 
             // FichaPersonaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1060, 606);
+            this.ClientSize = new System.Drawing.Size(972, 606);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "FichaPersonaje";
@@ -340,10 +347,10 @@
         private Label lb_DatosPersonaje;
         private Panel panel2;
         private Panel panel3;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton rd_Button1;
-        private TextBox textBox1;
+        private RadioButton rb_Evil;
+        private RadioButton rb_Neutral;
+        private RadioButton rb_Good;
+        private TextBox txb_Nombre;
         private Label label1;
         private Label lbl_Puntos;
         private Label label6;
@@ -358,7 +365,8 @@
         private Button btn_MinusVida;
         private TextBox txtBox_Suerte;
         private Button btn_Registrar;
-        private ComboBox comboBox1;
+        private ComboBox cmb_Raza;
         private Button btn_PlusVida;
+        private Label lb_Error;
     }
 }

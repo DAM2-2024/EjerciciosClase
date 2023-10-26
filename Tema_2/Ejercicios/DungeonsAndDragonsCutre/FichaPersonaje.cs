@@ -1,4 +1,5 @@
-﻿using DungeonsAndDragonsCutre.Utils;
+﻿using DungeonsAndDragonsCutre.Models;
+using DungeonsAndDragonsCutre.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,15 @@ namespace DungeonsAndDragonsCutre
 {
     public partial class FichaPersonaje : Form
     {
+        private Personaje _currentPersonaje;
+        private int GetPuntos
+        {
+            get
+            {
+                return int.Parse(lbl_Puntos.Text.Split(":").LastOrDefault());
+            }
+        }
+
         public FichaPersonaje()
         {
             InitializeComponent();
@@ -25,24 +35,25 @@ namespace DungeonsAndDragonsCutre
             this.btn_MinusFuerza.Click -= new System.EventHandler(this.btnMinus_Clicked);
             this.btn_MinusSuerte.Click -= new System.EventHandler(this.btnMinus_Clicked);
             this.btn_MinusVida.Click -= new System.EventHandler(this.btnMinus_Clicked);
-
             this.btn_PlusFuerza.Click -= new System.EventHandler(this.btnMas_Clicked);
             this.btn_PlusSuerte.Click -= new System.EventHandler(this.btnMas_Clicked);
             this.btn_PlusVida.Click -= new System.EventHandler(this.btnMas_Clicked);
+            this.btn_Registrar.Click -= new EventHandler(this.BtnRegistrar_Clicked);
 
             this.Load += new System.EventHandler(this.frm_Load);
             this.btn_MinusFuerza.Click += new System.EventHandler(this.btnMinus_Clicked);
             this.btn_MinusSuerte.Click += new System.EventHandler(this.btnMinus_Clicked);
             this.btn_MinusVida.Click += new System.EventHandler(this.btnMinus_Clicked);
-
             this.btn_PlusFuerza.Click += new System.EventHandler(this.btnMas_Clicked);
             this.btn_PlusSuerte.Click += new System.EventHandler(this.btnMas_Clicked);
             this.btn_PlusVida.Click += new System.EventHandler(this.btnMas_Clicked);
+            this.btn_Registrar.Click += new EventHandler(this.BtnRegistrar_Clicked);
 
         }
 
         private void frm_Load(object sender, EventArgs e)
         {
+            _currentPersonaje = Personaje.GetInstance();
             int cantidad = 0;
             Random rnd = new Random();
             int num = rnd.Next() % 7;
@@ -57,6 +68,8 @@ namespace DungeonsAndDragonsCutre
             txtBox_Suerte.Text = num.ToString();
             cantidad += num;
             lbl_Puntos.Text += $" {10 - cantidad}";
+
+            cmb_Raza.Items.AddRange(Enum.GetNames(typeof(Raza)));
         }
 
         private void btnMinus_Clicked(object sender, EventArgs e)
@@ -119,12 +132,57 @@ namespace DungeonsAndDragonsCutre
             lbl_Puntos.Text = Constants.LABEL_PUNTOS + puntosRestantes.ToString();
         }
 
-        private int GetPuntos
+
+        private void BtnRegistrar_Clicked(object sender, EventArgs e)
         {
-            get
+           lb_Error.Text = "";
+
+           if (string.IsNullOrEmpty(txb_Nombre.Text))
             {
-                return int.Parse(lbl_Puntos.Text.Split(":").LastOrDefault());
+                lb_Error.Text = "Tienes que introducir un nombre";
+                return;
             }
+
+           if (cmb_Raza.SelectedItem == null)
+            {
+                lb_Error.Text = "Tienes que elegir una raza";
+                return;
+            }
+
+           if (cmb_Raza.SelectedItem.ToString()== Enum.GetName(Raza.Orco) && rb_Good.Checked)
+           {
+                lb_Error.Text = "Un orco no puede ser Good.";
+                return;
+           }
+
+            if (cmb_Raza.SelectedItem.ToString() == Enum.GetName(Raza.Elfo) && rb_Evil.Checked)
+            {
+                lb_Error.Text = "Un elfo no puede ser Evil.";
+                return;
+            }
+
+            if (cmb_Raza.SelectedItem.ToString() == Enum.GetName(Raza.Humano) && rb_Neutral.Checked)
+            {
+                lb_Error.Text = "Un humano no puede ser neutral.";
+                return;
+            }
+
+            if (GetPuntos > 0)
+            {
+                lb_Error.Text = "Tienes que gastar los puntos";
+                return;
+            }
+
+            _currentPersonaje.Name = txb_Nombre.Text;
+            _currentPersonaje.Raza = (Raza) Enum.Parse(typeof(Raza),cmb_Raza.SelectedItem.ToString());
+            _currentPersonaje.Naturaleza= rb_Neutral.Checked ? Naturaleza.Neutral :
+                rb_Good.Checked ? Naturaleza.Good : Naturaleza.Evil;
+
+            _currentPersonaje.Fuerza = int.Parse(txtBox_Fuerza.Text);
+            _currentPersonaje.Suerte= int.Parse(txtBox_Suerte.Text);
+            _currentPersonaje.Vida = 30 + (int.Parse(txtBox_Suerte.Text)*2);
+            Form formularioStart = new Form();
+            formularioStart.Show();
         }
     }
 }
