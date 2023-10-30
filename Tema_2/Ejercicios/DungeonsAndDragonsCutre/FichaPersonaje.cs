@@ -181,8 +181,25 @@ namespace DungeonsAndDragonsCutre
             _currentPersonaje.Fuerza = int.Parse(txtBox_Fuerza.Text);
             _currentPersonaje.Suerte= int.Parse(txtBox_Suerte.Text);
             _currentPersonaje.Vida = 30 + (int.Parse(txtBox_Suerte.Text)*2);
+
+            this.Close();
             Form formularioStart = new Form();
+            Button startGameButton = new Button();
+            startGameButton.Text = "START GAME";
+            startGameButton.TextAlign = ContentAlignment.MiddleCenter;
+            startGameButton.Click -= new System.EventHandler(this.BtnStartGame_Clicked);
+            startGameButton.Click += new System.EventHandler(this.BtnStartGame_Clicked);
+            formularioStart.Controls.Add(startGameButton);
             formularioStart.Show();
+        }
+
+        private void BtnStartGame_Clicked(object sender, EventArgs e)
+        {
+            Button button = sender as Button ?? new Button();
+            Form parentForm = button.Parent as Form ?? new Form();
+            parentForm.Close();
+            GameForm gameForm = new GameForm(_currentPersonaje);
+            gameForm.Show();
         }
     }
 }
