@@ -182,7 +182,9 @@ namespace DungeonsAndDragonsCutre
             _currentPersonaje.Suerte= int.Parse(txtBox_Suerte.Text);
             _currentPersonaje.Vida = 30 + (int.Parse(txtBox_Suerte.Text)*2);
 
+
             this.Close();
+
             Form formularioStart = new Form();
             Button startGameButton = new Button();
             startGameButton.Text = "START GAME";
@@ -199,7 +201,7 @@ namespace DungeonsAndDragonsCutre
             Form parentForm = button.Parent as Form ?? new Form();
             parentForm.Close();
             GameForm gameForm = new GameForm(_currentPersonaje);
-            gameForm.Show();
+            gameForm.ShowDialog();
         }
     }
 }

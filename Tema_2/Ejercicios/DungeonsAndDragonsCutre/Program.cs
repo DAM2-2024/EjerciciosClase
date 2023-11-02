@@ -15,20 +15,8 @@ namespace DungeonsAndDragonsCutre
             ApplicationConfiguration.Initialize();
 
 
-            /* Este es el que deberia estar por defecto
             FichaPersonaje fichaPersonaje = new FichaPersonaje();
-            fichaPersonaje.ShowDialog();
-            */
-            Personaje personaje = Personaje.GetInstance();
-            personaje.Suerte = 5;
-            personaje.Fuerza= 5;
-            personaje.Vida= 100;
-            personaje.Naturaleza = Naturaleza.Evil;
-            personaje.Raza = Raza.Humano;
-            personaje.Name = "Konan";
-
-            GameForm gameForm = new GameForm(personaje);
-            Application.Run(gameForm);
+            fichaPersonaje.Show();
         }
     }
 }
