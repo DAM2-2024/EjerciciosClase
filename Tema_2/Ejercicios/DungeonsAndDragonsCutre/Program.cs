@@ -17,6 +17,7 @@ namespace DungeonsAndDragonsCutre
 
             FichaPersonaje fichaPersonaje = new FichaPersonaje();
             fichaPersonaje.Show();
+            Application.Run();
         }
     }
 }
