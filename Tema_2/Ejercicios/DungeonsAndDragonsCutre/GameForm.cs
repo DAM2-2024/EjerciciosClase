@@ -1,5 +1,6 @@
 ﻿using DungeonsAndDragonsCutre.Models;
 using DungeonsAndDragonsCutre.Utils;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -141,7 +142,7 @@ namespace DungeonsAndDragonsCutre
         {
             Form form = new Form();
             form.BackColor = Color.Black;
-            form.AutoSize= true;
+            form.AutoSize = true;
             FlowLayoutPanel flow = new FlowLayoutPanel
             {
                 WrapContents = true,
@@ -155,7 +156,7 @@ namespace DungeonsAndDragonsCutre
             lb_HasGanado.Text = "HAS GANADO";
             flow.Controls.Add(lb_HasGanado);
 
-            Label lb_TiempoJugado= new Label();
+            Label lb_TiempoJugado = new Label();
             lb_TiempoJugado.AutoSize = true;
             lb_TiempoJugado.Font = new Font(lb_TiempoJugado.Font, FontStyle.Bold);
             lb_TiempoJugado.ForeColor = Color.White;
@@ -193,6 +194,37 @@ namespace DungeonsAndDragonsCutre
             form.Controls.Add(flow);
             this.Close();
             form.ShowDialog();
+            HackDeMandarEstadisticaAPiñon();
+        }
+
+        private  void HackDeMandarEstadisticaAPiñon()
+        {
+            string myConnectionString = "server=localhost;Port:32769;uid=root;" +
+                            "pwd=12345;database=test";
+            MySqlConnection conn = new MySqlConnection();
+            try
+            {
+            
+                conn.ConnectionString = myConnectionString;
+                conn.Open();
+                MySqlCommand mySql = new MySqlCommand();
+
+                mySql.CommandText = "insert into Telemetry (tiempoJugado,max_Dealt_Damage," +
+                    "min_Dealt_Damage,Max_Recieved_Damage,Min_Recieved_Damage) " +
+                    "values (@fecha, @max_Dealt_Damage," +
+                    "@min_Dealt_Damage,@max_Recieved_Damage,@min_Recieved_Damage)";
+
+           
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
