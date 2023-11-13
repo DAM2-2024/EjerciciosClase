@@ -1,4 +1,5 @@
-﻿using DungeonsAndDragonsCutre.Models;
+﻿using DungeonsAndDragonsCutre.Data;
+using DungeonsAndDragonsCutre.Models;
 using DungeonsAndDragonsCutre.Utils;
 using MySql.Data.MySqlClient;
 using System;
@@ -17,16 +18,22 @@ namespace DungeonsAndDragonsCutre
     {
         private Personaje _currentPersonaje;
         private Enemigo _currentEnemigo;
-        private Estadistica _estadistica;
+        private Telemetry _estadistica;
         private List<string> oldEnemies = new List<string>();
         public GameForm(Personaje currentPersonaje)
         {
             InitializeComponent();
-            _estadistica = new Estadistica();
+            _estadistica = new Telemetry();
             this._currentPersonaje = currentPersonaje;
-            CargarEnemigo();
+            CargarEnemigos();
             AddEvents();
             ActualizarVidas();
+        }
+
+        private void CargarEnemigos()
+        {
+            EnemyClient enemyInstance =EnemyClient.Instance;
+            List<Enemigo> enemies = enemyInstance.GetAll();
         }
 
         private void AddEvents()
@@ -44,16 +51,6 @@ namespace DungeonsAndDragonsCutre
         {
             Enemigo enemigo = new Enemigo();
             Random random = new Random();
-            var imagenesEnemigos= Enemigo.GetPathEnemies();
-            imagenesEnemigos.RemoveAll(x => oldEnemies.Contains(x));
-
-            if (imagenesEnemigos.Count ==0)
-            {
-                MostrarCreditos();
-                return;
-            }
-            int index=random.Next(0, imagenesEnemigos.Count);
-            enemigo.Path = imagenesEnemigos[index];
             pbox_Enemies.Load(enemigo.Path);
             lb_Vida_Enemy.Text=enemigo.Vida.ToString();
             _currentEnemigo = enemigo;
@@ -190,41 +187,11 @@ namespace DungeonsAndDragonsCutre
             lb_Min_Recieved_Damage.ForeColor = Color.White;
             lb_Min_Recieved_Damage.Text = $"Daño mínimo recibido: {_estadistica.Min_Recieved_Damage}";
             flow.Controls.Add(lb_Min_Recieved_Damage);
-
             form.Controls.Add(flow);
             this.Close();
             form.ShowDialog();
-            HackDeMandarEstadisticaAPiñon();
-        }
-
-        private  void HackDeMandarEstadisticaAPiñon()
-        {
-            string myConnectionString = "server=localhost;Port:32769;uid=root;" +
-                            "pwd=12345;database=test";
-            MySqlConnection conn = new MySqlConnection();
-            try
-            {
-            
-                conn.ConnectionString = myConnectionString;
-                conn.Open();
-                MySqlCommand mySql = new MySqlCommand();
-
-                mySql.CommandText = "insert into Telemetry (tiempoJugado,max_Dealt_Damage," +
-                    "min_Dealt_Damage,Max_Recieved_Damage,Min_Recieved_Damage) " +
-                    "values (@fecha, @max_Dealt_Damage," +
-                    "@min_Dealt_Damage,@max_Recieved_Damage,@min_Recieved_Damage)";
-
-           
-
-            }
-            catch (MySql.Data.MySqlClient.MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+            TelemetryClient client = TelemetryClient.Instance;
+            client.Insert(_estadistica);
         }
     }
 }

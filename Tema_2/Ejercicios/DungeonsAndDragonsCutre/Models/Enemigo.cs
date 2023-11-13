@@ -16,15 +16,7 @@ namespace DungeonsAndDragonsCutre.Models
 
         public Enemigo()
         {
-            Random random = new Random();
-            Vida=random.Next(5, 21);
-            Fuerza= random.Next(1, 6); 
-        }
-
-        public static List<string> GetPathEnemies()
-        {
-            string[] imagenes = Directory.GetFiles(Constants.ENEMIES_PATH);
-            return new List<string>(imagenes);
+            
         }
     }
 }

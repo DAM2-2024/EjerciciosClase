@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsAndDragonsCutre.Models
 {
-    internal class Estadistica
+    public class Telemetry
     {
         public int Max_Dealt_Damage { get; set; }
         public int Min_Dealt_Damage { get; set; }
@@ -20,7 +20,7 @@ namespace DungeonsAndDragonsCutre.Models
                 return  (DateTime.Now - tiempoInicio).TotalSeconds;
             }
         }
-        public Estadistica()
+        public Telemetry()
         {
             tiempoInicio = DateTime.Now;
         }
