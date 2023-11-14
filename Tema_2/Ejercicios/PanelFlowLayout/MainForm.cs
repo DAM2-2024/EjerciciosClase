@@ -36,11 +36,13 @@ namespace PanelFlowLayout
                 Margin = new Padding(5)
             };
 
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = (Image)Properties.Resources.ResourceManager.GetObject(Utils.Constants.RESOURCE_NAME);
-            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox.Size = new Size(50, 50);
-            pictureBox.Dock = DockStyle.Fill;
+            PictureBox pictureBox = new PictureBox
+            {
+                Image = (Image)Properties.Resources.ResourceManager.GetObject(Utils.Constants.RESOURCE_NAME),
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(50, 50),
+                Dock = DockStyle.Fill
+            };
 
             Button button = new Button
             {
