@@ -32,21 +32,21 @@ namespace DungeonsAndDragonsCutre
         private void InitializeEvents()
         {
             this.Load -= new System.EventHandler(this.frm_Load);
-            this.btn_MinusFuerza.Click -= new System.EventHandler(this.btnMinus_Clicked);
-            this.btn_MinusSuerte.Click -= new System.EventHandler(this.btnMinus_Clicked);
-            this.btn_MinusVida.Click -= new System.EventHandler(this.btnMinus_Clicked);
-            this.btn_PlusFuerza.Click -= new System.EventHandler(this.btnMas_Clicked);
-            this.btn_PlusSuerte.Click -= new System.EventHandler(this.btnMas_Clicked);
-            this.btn_PlusVida.Click -= new System.EventHandler(this.btnMas_Clicked);
+            this.btn_MinusFuerza.Click -= new System.EventHandler(this.BtnMinus_Clicked);
+            this.btn_MinusSuerte.Click -= new System.EventHandler(this.BtnMinus_Clicked);
+            this.btn_MinusVida.Click -= new System.EventHandler(this.BtnMinus_Clicked);
+            this.btn_PlusFuerza.Click -= new System.EventHandler(this.BtnMas_Clicked);
+            this.btn_PlusSuerte.Click -= new System.EventHandler(this.BtnMas_Clicked);
+            this.btn_PlusVida.Click -= new System.EventHandler(this.BtnMas_Clicked);
             this.btn_Registrar.Click -= new EventHandler(this.BtnRegistrar_Clicked);
 
             this.Load += new System.EventHandler(this.frm_Load);
-            this.btn_MinusFuerza.Click += new System.EventHandler(this.btnMinus_Clicked);
-            this.btn_MinusSuerte.Click += new System.EventHandler(this.btnMinus_Clicked);
-            this.btn_MinusVida.Click += new System.EventHandler(this.btnMinus_Clicked);
-            this.btn_PlusFuerza.Click += new System.EventHandler(this.btnMas_Clicked);
-            this.btn_PlusSuerte.Click += new System.EventHandler(this.btnMas_Clicked);
-            this.btn_PlusVida.Click += new System.EventHandler(this.btnMas_Clicked);
+            this.btn_MinusFuerza.Click += new System.EventHandler(this.BtnMinus_Clicked);
+            this.btn_MinusSuerte.Click += new System.EventHandler(this.BtnMinus_Clicked);
+            this.btn_MinusVida.Click += new System.EventHandler(this.BtnMinus_Clicked);
+            this.btn_PlusFuerza.Click += new System.EventHandler(this.BtnMas_Clicked);
+            this.btn_PlusSuerte.Click += new System.EventHandler(this.BtnMas_Clicked);
+            this.btn_PlusVida.Click += new System.EventHandler(this.BtnMas_Clicked);
             this.btn_Registrar.Click += new EventHandler(this.BtnRegistrar_Clicked);
 
         }
@@ -72,7 +72,7 @@ namespace DungeonsAndDragonsCutre
             cmb_Raza.Items.AddRange(Enum.GetNames(typeof(Raza)));
         }
 
-        private void btnMinus_Clicked(object sender, EventArgs e)
+        private void BtnMinus_Clicked(object sender, EventArgs e)
         {
             Button button = sender as Button ?? new Button();
             int numero = 0;
@@ -92,7 +92,7 @@ namespace DungeonsAndDragonsCutre
             }
         }
 
-        private void btnMas_Clicked(object sender, EventArgs e)
+        private void BtnMas_Clicked(object sender, EventArgs e)
         {
             Button button = sender as Button ?? new Button();
             int numero = 0;
@@ -188,6 +188,8 @@ namespace DungeonsAndDragonsCutre
             Form formularioStart = new Form();
             Button startGameButton = new Button();
             startGameButton.Text = "START GAME";
+            startGameButton.Left = (formularioStart.Width - startGameButton.Width) / 2;
+            startGameButton.Top = (formularioStart.Height - startGameButton.Height) / 2;
             startGameButton.TextAlign = ContentAlignment.MiddleCenter;
             startGameButton.Click -= new System.EventHandler(this.BtnStartGame_Clicked);
             startGameButton.Click += new System.EventHandler(this.BtnStartGame_Clicked);

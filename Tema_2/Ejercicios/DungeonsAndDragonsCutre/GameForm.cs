@@ -19,7 +19,8 @@ namespace DungeonsAndDragonsCutre
         private Personaje _currentPersonaje;
         private Enemigo _currentEnemigo;
         private Telemetry _estadistica;
-        private List<string> oldEnemies = new List<string>();
+        private List<Enemigo> _enemies;
+
         public GameForm(Personaje currentPersonaje)
         {
             InitializeComponent();
@@ -33,7 +34,8 @@ namespace DungeonsAndDragonsCutre
         private void CargarEnemigos()
         {
             EnemyClient enemyInstance =EnemyClient.Instance;
-            List<Enemigo> enemies = enemyInstance.GetAll();
+            _enemies = enemyInstance.GetAll();
+            CargarEnemigo();
         }
 
         private void AddEvents()
@@ -49,12 +51,17 @@ namespace DungeonsAndDragonsCutre
 
         private void CargarEnemigo()
         {
-            Enemigo enemigo = new Enemigo();
-            Random random = new Random();
+            Enemigo? enemigo = _enemies.FirstOrDefault();
+            if (enemigo == null)
+            {
+                MostrarCreditos(false);
+                return;
+            }
+
             pbox_Enemies.Load(enemigo.Path);
             lb_Vida_Enemy.Text=enemigo.Vida.ToString();
             _currentEnemigo = enemigo;
-            oldEnemies.Add(enemigo.Path);
+            _enemies.RemoveAt(0);
         }
 
         private void BtnAtack_Clicked(object sender, EventArgs e)
@@ -98,7 +105,7 @@ namespace DungeonsAndDragonsCutre
 
             if (_currentPersonaje.Vida <=0)
             {
-                MostrarCreditos();
+                MostrarCreditos(true);
             }
             if (_currentEnemigo.Vida<=0)
             {
@@ -135,7 +142,7 @@ namespace DungeonsAndDragonsCutre
             _estadistica.Min_Recieved_Damage = _estadistica.Min_Recieved_Damage > damageEnemigo
                 ? damageEnemigo : _estadistica.Max_Recieved_Damage;
         }
-        private void MostrarCreditos()
+        private void MostrarCreditos(bool hasPerdido)
         {
             Form form = new Form();
             form.BackColor = Color.Black;
@@ -150,7 +157,7 @@ namespace DungeonsAndDragonsCutre
             Label lb_HasGanado = new Label();
             lb_HasGanado.ForeColor = Color.White;
             lb_HasGanado.Font = new Font(lb_HasGanado.Font, FontStyle.Bold);
-            lb_HasGanado.Text = "HAS GANADO";
+            lb_HasGanado.Text = hasPerdido ? "HAS PERDIDO LOOSER": "HAS GANADO";
             flow.Controls.Add(lb_HasGanado);
 
             Label lb_TiempoJugado = new Label();
@@ -174,11 +181,13 @@ namespace DungeonsAndDragonsCutre
             lb_Min_Dealt_Damage.Text = $"Daño mínimo realizado: {_estadistica.Min_Dealt_Damage}";
             flow.Controls.Add(lb_Min_Dealt_Damage);
 
-            Label lb_Max_Recieved_Damage = new Label();
-            lb_Max_Recieved_Damage.AutoSize = true;
-            lb_Max_Recieved_Damage.ForeColor = Color.White;
-            lb_Max_Recieved_Damage.Font = new Font(lb_HasGanado.Font, FontStyle.Bold);
-            lb_Max_Recieved_Damage.Text = $"Daño máximo recibido: {_estadistica.Max_Recieved_Damage}";
+            Label lb_Max_Recieved_Damage = new Label
+            {
+                AutoSize = true,
+                ForeColor = Color.White,
+                Font = new Font(lb_HasGanado.Font, FontStyle.Bold),
+                Text = $"Daño máximo recibido: {_estadistica.Max_Recieved_Damage}"
+            };
             flow.Controls.Add(lb_Max_Recieved_Damage);
 
             Label lb_Min_Recieved_Damage = new Label();
