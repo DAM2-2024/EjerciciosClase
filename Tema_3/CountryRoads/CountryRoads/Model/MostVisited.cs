@@ -8,6 +8,8 @@ namespace CountryRoads.Model
 {
     public class MostVisited
     {
+        public int Id{ get; set; }
         public string Name { get; set; }
+        public int Visitas { get;  set; }
     }
 }

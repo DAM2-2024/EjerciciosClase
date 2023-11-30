@@ -1,18 +1,15 @@
 ﻿using CountryRoads.Clients;
 using CountryRoads.Model;
 using CountryRoads.Utils;
-using Google.Protobuf.WellKnownTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Label = System.Windows.Forms.Label;
 
 namespace CountryRoads
 {
@@ -20,7 +17,7 @@ namespace CountryRoads
     {
         private StatusStrip _statusStrip;
         private ToolStripStatusLabel _statusLabel;
-        List<Country>? _countries;
+        List<Country>? _allCountries; 
         public Main()
         {
             InitializeComponent();
@@ -32,9 +29,9 @@ namespace CountryRoads
         {
             try
             {
-                _countries = await HttpJsonClient<List<Country>>.RequestCountryDataAsync(Constants.BASE_URL_API, "all");
+                _allCountries = await HttpJsonClient<List<Country>>.RequestCountryDataAsync(Constants.BASE_URL_API, "all");
 
-                AddDataFlowLayout(_countries);
+                AddDataFlowLayout(_allCountries);
 
             }
             catch (Exception ex)
@@ -60,7 +57,7 @@ namespace CountryRoads
         private void Label_Click(object? sender, EventArgs e)
         {
             Label? label = sender as Label;
-            Country countrySelected =_countries?.FirstOrDefault(x => x.name.common == label?.Text) ?? new Country();
+            Country countrySelected = _allCountries?.FirstOrDefault(x => x.name.common == label?.Text) ?? new Country();
 
             Form form = new Form();
             TableLayoutPanel tableLayoutPanel = new TableLayoutPanel
@@ -71,6 +68,21 @@ namespace CountryRoads
                 ColumnCount = 1,
 
             };
+            FlowLayoutPanel flowLayout = LoadTableLayout(countrySelected, tableLayoutPanel);
+            tableLayoutPanel.Controls.Add(flowLayout, 0, 4);
+            form.Controls.Add(tableLayoutPanel);
+            form.ShowDialog();
+
+            MostVisited? currentMostWanted = CountryClient.Instance.GetAll().FirstOrDefault(x => x.Name == countrySelected.name.common);
+
+            MostVisited current =currentMostWanted ?? new MostVisited();
+            current.Name=countrySelected.name.common;
+
+            CountryClient.Instance.Upsert(current);
+        }
+
+        private static FlowLayoutPanel LoadTableLayout(Country countrySelected, TableLayoutPanel tableLayoutPanel)
+        {
             Label lbEscudo = new Label();
             lbEscudo.Text = "Escudo";
             tableLayoutPanel.Controls.Add(lbEscudo, 0, 0);
@@ -103,13 +115,7 @@ namespace CountryRoads
 
             flowLayout.Controls.Add(lbCapital);
             flowLayout.Controls.Add(lbRegion);
-
-            tableLayoutPanel.Controls.Add(flowLayout, 0, 4);
-
-
-            form.Controls.Add(tableLayoutPanel);
-            form.ShowDialog();
-
+            return flowLayout;
         }
 
         private void InitializeUI()
@@ -118,8 +124,9 @@ namespace CountryRoads
 
             ToolStripMenuItem allCountriesMenuItem = new ToolStripMenuItem("All Countries");
             ToolStripMenuItem mostVisitedMenuItem = new ToolStripMenuItem("Most Visited");
+            
             mostVisitedMenuItem.Click += MostVisitedMenuItem_Click;
-
+            allCountriesMenuItem.Click += AllVisitedMenuItem_Click;
             MenuStrip menuStrip = new MenuStrip()
             {
                 Font = new Font("Segoe UI", 12),
@@ -140,14 +147,22 @@ namespace CountryRoads
             this.Controls.Add(_statusStrip);
             this.FormClosing += MainForm_FormClosing;
         }
+        private void AllVisitedMenuItem_Click(object? sender, EventArgs e)
+        {
+            AddDataFlowLayout(_allCountries);
+        }
+
 
         private void MostVisitedMenuItem_Click(object? sender, EventArgs e)
         {
             List<MostVisited> mostVisitedCountries =CountryClient.Instance.GetAll();
-            List<string> nameMostVisitedCountries = mostVisitedCountries.Select(x => x.Name.ToLower()).ToList();
+            List<string> nameMostVisitedCountries = mostVisitedCountries.OrderByDescending(x=>x.Visitas)
+                                                                        .Select(x => x.Name.ToLower())
+                                                                        .Take(20)
+                                                                        .ToList();
 
-            AddDataFlowLayout(_countries?.Where(x=>
-                nameMostVisitedCountries.Contains(x.name.common.ToLower())) ?? new List<Country> ()
+            AddDataFlowLayout(_allCountries?.Where(x =>
+                nameMostVisitedCountries.Contains(x.name.common.ToLower())) ?? new List<Country>()
             );
         }
 
