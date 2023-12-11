@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -71,4 +72,3 @@ public class Tag
     public int id { get; set; }
     public string name { get; set; }
 }
-

@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pokedex", "Pokedex\Pokedex.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonsAndDragonsCutre", "DungeonsAndDragonsCutre\DungeonsAndDragonsCutre.csproj", "{ADBD3B2C-ECDB-45BE-978D-17000BDC0B73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PanelFlowLayout", "PanelFlowLayout\PanelFlowLayout.csproj", "{B58EE6B7-9C4D-4E7E-ACD4-36A7925508EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PanelFlowLayout", "PanelFlowLayout\PanelFlowLayout.csproj", "{B58EE6B7-9C4D-4E7E-ACD4-36A7925508EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBox", "ComboBox\ComboBox.csproj", "{7F24721D-0262-4DB9-ACB0-5D9235081CBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{B58EE6B7-9C4D-4E7E-ACD4-36A7925508EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B58EE6B7-9C4D-4E7E-ACD4-36A7925508EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B58EE6B7-9C4D-4E7E-ACD4-36A7925508EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F24721D-0262-4DB9-ACB0-5D9235081CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F24721D-0262-4DB9-ACB0-5D9235081CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F24721D-0262-4DB9-ACB0-5D9235081CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F24721D-0262-4DB9-ACB0-5D9235081CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
