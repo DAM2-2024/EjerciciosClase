@@ -46,7 +46,8 @@ namespace Usabilidad
 
             Button saveButton = CreateStyledButton("Save File");
 
-            saveButton.Click += (s, eventArgs) => SaveFile(s, eventArgs);
+            //saveButton.Click += (s, eventArgs) => SaveFile(s, eventArgs);
+            saveButton.MouseDown += (s, eventArgs) => SaveFile(s, eventArgs);
 
             TableLayoutPanel tableLayoutPanel = new TableLayoutPanel
             {
@@ -54,7 +55,6 @@ namespace Usabilidad
                 Padding = new Padding(10),
                 RowCount = 2,
                 ColumnCount = 2,
-
             };
             tableLayoutPanel.Controls.Add(menuStrip, 0, 0);
             tableLayoutPanel.Controls.Add(openButton, 0, 1);
@@ -88,9 +88,9 @@ namespace Usabilidad
 
         private void SaveFile(object sender, EventArgs e)
         {
+            Button xd = sender as Button;
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Text Files|*.txt|All Files|*.*";
-
+            saveFileDialog.Filter = "Text Files|*.txt|All Files|*.*";;
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string fileName = saveFileDialog.FileName;
