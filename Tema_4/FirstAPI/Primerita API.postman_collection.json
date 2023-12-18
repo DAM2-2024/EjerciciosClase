@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "60934a1d-1580-4f15-bbc9-16b71dedbb57",
+		"name": "Primerita API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31764080"
+	},
+	"item": [
+		{
+			"name": "GetGods",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5299/God",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5299",
+					"path": [
+						"God"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGod",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5299/God/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5299",
+					"path": [
+						"God",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAPI",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5299/God/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5299",
+					"path": [
+						"God",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateGod",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Hades\",\r\n    \"parejas\": [\r\n      \"Jja\",\r\n      \"tarik\"\r\n    ],\r\n    \"fuerza\": 1,\r\n    \"protegee\": [\r\n      \"Santiago\",\r\n      \"SantiagoMasFuerte\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5299/God",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5299",
+					"path": [
+						"God"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ModifyGod",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Zeus_Fake\",\r\n    \"parejas\": [\r\n      \"MartinoKing_II\",\r\n      \"Carlos_Guiller\"\r\n    ],\r\n    \"fuerza\": 1,\r\n    \"protegee\": [\r\n      \"JesusKing\",\r\n      \"Manuelésimo\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5299/God/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5299",
+					"path": [
+						"God",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

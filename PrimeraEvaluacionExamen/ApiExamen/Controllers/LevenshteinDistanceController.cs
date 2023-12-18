@@ -13,6 +13,11 @@ public class LevenshteinDistanceController : ControllerBase
         _logger = logger;
     }
 
+    [HttpGet]
+    public ActionResult<int> Get()
+    {
+        return Ok(5);
+    }
 
     [HttpPost]
     public ActionResult<int> Check(FileCompare fileCompare)
